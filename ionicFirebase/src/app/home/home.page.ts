@@ -10,19 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   public apprenants: any;
-  public profile;
+  public search;
   constructor(private firestore: AngularFirestore,private fireAuth:AngularFireAuth) { }
   ngOnInit() {
     this.firestore.collection("Apprenants")
         .get()
         .subscribe(data => {
-          this.apprenants = data.docs.map(doc=>doc.data())          
+          this.apprenants = data.docs.map(doc=>doc.data())                    
         },
           err => {
             console.log(err)
           }
         )
     }
-  
   
 }

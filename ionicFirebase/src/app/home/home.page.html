@@ -6,13 +6,13 @@
     <ion-title>
       HOME
     </ion-title>
-    <ion-searchbar showCancelButton="focus" slot="end" style="height: 50%;"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="search" showCancelButton="focus" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
 <ion-card-content *ngIf="apprenants">
- <ion-item *ngFor="let d of apprenants">
+ <ion-item *ngFor="let d of apprenants | filter:search">
  <ion-label>{{d.prenom}}</ion-label>
  <ion-label>{{d.nom}}</ion-label>
  </ion-item>

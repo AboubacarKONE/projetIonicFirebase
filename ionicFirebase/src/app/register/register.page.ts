@@ -11,34 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private firestore:AngularFirestore,private route:Router,private fireAuth:AngularFireAuth) { }
+  constructor(private firestore: AngularFirestore, private route: Router, private fireAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
-  onRegister(valeur){
+  onRegister(valeur) {
+    if (valeur == null) {
       this.enregistrer(valeur)
-      return this.route.navigateByUrl('/login');      
+      return this.route.navigateByUrl('/login');
+    }else{
+      alert("veuillez renseigner toutes les champs")
+    }
+
   }
-  enregistrer(user){
+  enregistrer(user) {
     this.firestore.collection("Apprenants").doc(user.imdb).set(user)
-      .then(()=>{
+      .then(() => {
         this.authenticate(user)
-        alert("document enregistrer avec succes")}
-        ).catch(error=>{
-          console.error("erreur ecrit document:",error)
-        })
+        alert("document enregistrer avec succes")
+      }
+      ).catch(error => {
+        console.error("erreur ecrit document:", error)
+      })
   }
-  authenticate(u){
+  authenticate(u) {
     this.fireAuth.createUserWithEmailAndPassword(u.email, u.password)
-        .then((userCredential) => {
-          // Signed in 
-          var user = userCredential.user;
-          // ...
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ..
-        });
+      .then((userCredential) => {
+        // Signed in 
+        var user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
   }
 }

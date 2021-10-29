@@ -11,8 +11,11 @@
   <ion-item>
     <ion-input type="password" name="password" ngModel placeholder="password"></ion-input>
   </ion-item>
-  <ion-button type="Submit" expand="block">Login</ion-button>
-  <ion-label>pas de compte?</ion-label>
-  <a routerLink='/register'>register</a>
+  <div class="flex">
+      <a routerLink='/register'class="position" >register</a>
+      <ion-button type="Submit">Login</ion-button>   
+  </div>
+  
+
 </form>
 </ion-content>
