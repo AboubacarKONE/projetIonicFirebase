@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+  <ion-item>
+    <ion-input type="email" name="email" ngModel placeholder="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="password" name="password" ngModel placeholder="password"></ion-input>
+  </ion-item>
+  <ion-button type="Submit" expand="block">Login</ion-button>
+  <ion-label>pas de compte?</ion-label>
+  <a routerLink='/register'>register</a>
+</form>
+</ion-content>

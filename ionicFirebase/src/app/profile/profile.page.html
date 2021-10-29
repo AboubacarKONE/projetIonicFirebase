@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="profile">
+<ion-card-content *ngFor="let pro of profile">
+    <ion-item>
+      <ion-label>Nom: {{pro.nom}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prenom: {{pro.prenom}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email: {{pro.email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pseudo: {{pro.pseudo}}</ion-label>
+    </ion-item>
+</ion-card-content>
+</ion-content>

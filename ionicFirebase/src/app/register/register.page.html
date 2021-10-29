@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #f="ngForm" (ngSubmit)="onRegister(f.value)">
+<ion-item>
+<ion-input type="text" name="nom" ngModel placeholder="veuillez entrer votre nom" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" name="prenom" ngModel placeholder="Veuillez entrer votre prenom"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="email" name="email" ngModel placeholder="Veuillez entrer votre email"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="login" name="pseudo" ngModel placeholder="Veuillez entrer votre pseudo"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="password" name="password" ngModel placeholder="Veuillez entrer votre mot de passe"></ion-input>
+</ion-item>
+<ion-button type="Submit" expand="block">S'inscrire</ion-button>
+</form>
+</ion-content>
