@@ -12,8 +12,17 @@
     <ion-input type="password" name="password" ngModel placeholder="password"></ion-input>
   </ion-item>
   <div class="flex">
-      <a routerLink='/register'class="position" >register</a>
-      <ion-button type="Submit">Login</ion-button>   
+    <ion-grid>
+      <ion-row>
+        <ion-col class="position"> <a routerLink='/register'>S'inscrire</a></ion-col>
+        <ion-col>
+          <ion-button type="Submit" class="submit">Se connecter</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-col style="margin-left: 48%;">
+        <a style="color: red;" [routerLink]="['/reset-password']" class="small-text">Mot de passe oublié? </a>
+      </ion-col>
+    </ion-grid>
   </div>
   
 
