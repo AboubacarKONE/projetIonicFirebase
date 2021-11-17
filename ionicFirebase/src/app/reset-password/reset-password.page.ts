@@ -8,22 +8,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.page.scss'],
 })
 export class ResetPasswordPage implements OnInit {
-
+ public data;
   constructor(private fireAuth: AngularFireAuth, private fire: AngularFirestore) { }
 
   ngOnInit() {
   }
   onChange(c) {
     this.fireAuth.onAuthStateChanged((user) => {
-      if (user) {
-        var users = user.email;
+      if (c==null) {
+         user.updatePassword(c.newPassword).then(() => {         
+          // Update successful.
+          alert("mot de passe modifié avec succès")
+        }).catch((error) => {
+          // An error ocurred
+          // ...
+          console.log(error);
+          
+        });
         //this.getByEmail(users)
         // ...
+        // 
       } else {
-        console.log("user is not connect");
+       alert("veuillez renseigner les champs")
 
       }
     });
   }
+  getByPassword(userPassword) {
+    this.fire.collection("Apprenants", ref => ref.where("email", "==", userPassword))
+  }
+
+
+  
+
 
 }
+
