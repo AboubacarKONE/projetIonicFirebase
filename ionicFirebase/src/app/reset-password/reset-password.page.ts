@@ -1,3 +1,5 @@
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordPage implements OnInit {
 
-  constructor() { }
+  constructor(private fireAuth: AngularFireAuth, private fire: AngularFirestore) { }
 
   ngOnInit() {
   }
-  onChange(c){
-    
+  onChange(c) {
+    this.fireAuth.onAuthStateChanged((user) => {
+      if (user) {
+        var users = user.email;
+        //this.getByEmail(users)
+        // ...
+      } else {
+        console.log("user is not connect");
+
+      }
+    });
   }
 
 }

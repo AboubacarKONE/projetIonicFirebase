@@ -12,6 +12,7 @@ export class MenuPage implements OnInit {
   public menus = [
     { title: "Home", url: "/menu/home", icon: "home-outline" },
     { title: "profile", url: "/menu/profile", icon: "woman-outline" },
+    { title: "Passeword", url: "/menu/reset-password", icon: "woman-outline" },
     { title: "Logout", url: "Logout", icon: "log-out-outline" }
   ]
   constructor(private route: Router, private fireAuth: AngularFireAuth) { }
